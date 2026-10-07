@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ── */
+@layer base {
+  html  { scroll-behavior: smooth; }
+  body  { @apply bg-cream text-ink font-sans antialiased; }
+  *     { @apply border-border; }
+  ::selection { background: #306D29; color: #FBF5DD; }
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #E7E1B1; }
+::-webkit-scrollbar-thumb { background: #306D29; border-radius: 99px; }
+
+/* ── Component utilities ── */
+@layer utilities {
+  /* Typography */
+  .display-xl { @apply text-[72px] leading-none font-black tracking-tight; }
+  .display-lg { @apply text-5xl leading-[1.08] font-extrabold tracking-tight; }
+  .display-md { @apply text-4xl leading-[1.1] font-extrabold tracking-tight; }
+  .label      { @apply text-[11px] font-semibold tracking-[0.12em] uppercase; }
+
+  /* Buttons */
+  .btn-forest {
+    @apply inline-flex items-center gap-2 bg-forest text-cream font-semibold
+           px-5 py-2.5 rounded-lg text-sm transition-all duration-200
+           hover:bg-forest-light active:scale-95;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 border border-border text-ink font-medium
+           px-5 py-2.5 rounded-lg text-sm transition-all duration-200
+           hover:border-forest hover:text-forest active:scale-95 bg-transparent;
+  }
+
+  /* Cards */
+  .card-base {
+    @apply bg-sand rounded-2xl border border-border transition-all duration-200;
+  }
+  .card-hover {
+    @apply hover:border-forest/40 hover:shadow-lg hover:shadow-forest/5;
+  }
+
+  .domain-sticky-card {
+    height: auto;
+  }
+  @media (min-width: 1024px) {
+    .domain-sticky-card {
+      height: 700px !important;
+    }
+  }
+
+  /* Section spacing */
+  .section { @apply py-24 px-6 md:px-12 lg:px-20; }
+  .section-sm { @apply py-16 px-6 md:px-12 lg:px-20; }
+
+  /* Tag pill */
+  .tag {
+    @apply inline-flex items-center gap-1.5 text-[11px] font-semibold tracking-wider
+           uppercase px-3 py-1 rounded-full;
+  }
+  .tag-forest { @apply tag bg-forest/10 text-forest border border-forest/20; }
+  .tag-sand   { @apply tag bg-sand text-muted border border-border; }
+
+  /* Dividers */
+  .divider      { @apply border-t border-border; }
+  .divider-sand { @apply border-t border-sand; }
+
+  /* Terminal style */
+  .terminal {
+    @apply bg-forest-dark rounded-xl font-mono text-sm overflow-hidden border border-forest/30;
+  }
+
+  /* Grid patterns */
+  .dot-grid {
+    background-image: radial-gradient(#D5CF9F 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
