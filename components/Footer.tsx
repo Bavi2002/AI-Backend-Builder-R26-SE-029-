@@ -3,16 +3,16 @@
 import { Github, ArrowUpRight } from "lucide-react";
 
 const links = [
+  { label: "Features",   href: "#features" },
   { label: "Domain",     href: "#domain" },
+  { label: "Pipeline",   href: "#pipeline" },
+  { label: "Agents",     href: "#agents" },
+  { label: "Tech Stack", href: "#tech-stack" },
   { label: "Milestones", href: "#milestones" },
   { label: "Documents",  href: "#documents" },
-  { label: "Features",   href: "#features" },
-  { label: "Pipeline",   href: "#how-it-works" },
-  { label: "Tech Stack", href: "#tech-stack" },
   { label: "Slides",     href: "#presentations" },
-  { label: "Team",       href: "#team" },
+  { label: "Extension",  href: "#extension" },
   { label: "Contact",    href: "#contact" },
-  { label: "GitHub",     href: "https://github.com/Koshigawarman/R26-SE-029", ext: true },
 ];
 
 export default function Footer() {
@@ -46,27 +46,34 @@ export default function Footer() {
             <a
               key={l.label}
               href={l.href}
-              target={l.ext ? "_blank" : undefined}
-              rel={l.ext ? "noopener noreferrer" : undefined}
-              className="flex items-center gap-0.5 text-sm transition-colors duration-150 hover:text-[#0F172A]"
+              className="text-sm transition-colors duration-150 hover:text-[#0F172A]"
               style={{ color: "#64748B" }}
             >
               {l.label}
-              {l.ext && <ArrowUpRight className="w-3 h-3" />}
             </a>
           ))}
         </nav>
 
-        {/* CTA */}
-        <a
-          href="https://github.com/Koshigawarman/R26-SE-029"
-          target="_blank" rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.03] flex-shrink-0"
-          style={{ background: "#0F172A", color: "#FAFAFA" }}
-        >
-          <Github className="w-3.5 h-3.5" />
-          Clone repo
-        </a>
+        {/* CTA Buttons */}
+        <div className="flex items-center gap-2.5 flex-shrink-0">
+          <a
+            href="https://marketplace.visualstudio.com/items?itemName=R26-SE-029.ai-backend-builder"
+            target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.03] text-white bg-blue-600 hover:bg-blue-700 shadow-sm"
+          >
+            Install Extension
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </a>
+          <a
+            href="https://github.com/Koshigawarman/R26-SE-029"
+            target="_blank" rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 hover:scale-[1.03]"
+            style={{ background: "#0F172A", color: "#FAFAFA" }}
+          >
+            <Github className="w-3.5 h-3.5" />
+            Clone repo
+          </a>
+        </div>
       </div>
 
       {/* ── Giant display text ── */}

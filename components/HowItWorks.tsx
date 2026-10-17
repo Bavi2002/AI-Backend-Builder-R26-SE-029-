@@ -9,7 +9,7 @@ const steps = [
     n: "01",
     title: "Install Extension",
     body: "Simply install the AI Backend Builder extension directly from the VS Code marketplace to get started. No local server required.",
-    code: "ext install ai-backend-builder",
+    code: "code --install-extension R26-SE-029.ai-backend-builder",
     tag: "Setup",
     Icon: Terminal,
     color: "#FFFFFF", // White
@@ -57,9 +57,9 @@ export default function HowItWorks() {
 
   return (
     <section id="pipeline" className="py-24 px-6 md:px-12 lg:px-20 relative flex flex-col items-center justify-center min-h-screen" style={{ background: "#0A0F1C" }}>
-      
+
       {/* Background Ambient Glow */}
-      <div 
+      <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[150px] transition-colors duration-1000 pointer-events-none"
         style={{ background: steps[activeStep].color, opacity: 0.05 }}
       />
@@ -76,15 +76,15 @@ export default function HowItWorks() {
 
       {/* ── Compact Interactive Widget ── */}
       <div className="w-full max-w-5xl rounded-[2.5rem] border border-white/20 bg-[#0F172A]/80 backdrop-blur-3xl overflow-hidden shadow-[0_40px_100px_-20px_rgba(0,0,0,1)] relative flex flex-col z-10">
-        
+
         {/* 1. Top Navigation Track */}
         <div className="relative border-b border-white/15">
-          
+
           {/* Animated Active Pill Indicator (Desktop only) */}
           <div className="hidden md:flex absolute inset-0 p-2 pointer-events-none">
-            <div 
+            <div
               className="h-full w-1/5 rounded-[2rem] transition-all duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] border"
-              style={{ 
+              style={{
                 transform: `translateX(${activeStep * 100}%)`,
                 backgroundColor: `${steps[activeStep].color}1A`,
                 borderColor: `${steps[activeStep].color}4D`,
@@ -97,7 +97,7 @@ export default function HowItWorks() {
             {steps.map((step, i) => {
               const isActive = activeStep === i;
               return (
-                <button 
+                <button
                   key={step.n}
                   onMouseEnter={() => setActiveStep(i)}
                   onClick={() => setActiveStep(i)}
@@ -105,7 +105,7 @@ export default function HowItWorks() {
                     ${isActive ? 'bg-[rgba(255,255,255,0.03)] md:bg-transparent' : 'hover:bg-[rgba(255,255,255,0.04)] opacity-50 hover:opacity-100'}
                   `}
                 >
-                  <span className="text-[10px] font-black uppercase tracking-widest transition-colors duration-500" 
+                  <span className="text-[10px] font-black uppercase tracking-widest transition-colors duration-500"
                     style={{ color: isActive ? step.color : "rgba(255,255,255,0.4)" }}>
                     Step {step.n}
                   </span>
@@ -122,67 +122,67 @@ export default function HowItWorks() {
 
         {/* 2. Content Area */}
         <div className="grid w-full">
-           {steps.map((step, i) => {
-             const isActive = activeStep === i;
-             const Icon = step.Icon;
-             const accent = step.color;
+          {steps.map((step, i) => {
+            const isActive = activeStep === i;
+            const Icon = step.Icon;
+            const accent = step.color;
 
-             return (
-               <div 
-                 key={step.n}
-                 className={`col-start-1 row-start-1 p-8 md:p-12 flex flex-col md:flex-row gap-10 items-center transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
+            return (
+              <div
+                key={step.n}
+                className={`col-start-1 row-start-1 p-8 md:p-12 flex flex-col md:flex-row gap-10 items-center transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
                    ${isActive ? 'opacity-100 translate-y-0 scale-100 pointer-events-auto z-10' : 'opacity-0 translate-y-12 scale-95 pointer-events-none z-0'}
                  `}
-               >
-                 
-                 {/* Left: Text Content */}
-                 <div className="flex-1 flex flex-col justify-center items-start relative z-10 w-full">
-                    
-                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border shadow-lg"
-                      style={{ backgroundColor: `${accent}26`, borderColor: `${accent}66` }}>
-                       <Icon className="w-6 h-6" style={{ color: accent }} />
+              >
+
+                {/* Left: Text Content */}
+                <div className="flex-1 flex flex-col justify-center items-start relative z-10 w-full">
+
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 border shadow-lg"
+                    style={{ backgroundColor: `${accent}26`, borderColor: `${accent}66` }}>
+                    <Icon className="w-6 h-6" style={{ color: accent }} />
+                  </div>
+
+                  <h3 className="text-3xl md:text-4xl font-black tracking-tight mb-4 text-[#FAFAFA]">
+                    {step.title}
+                  </h3>
+
+                  <p className="text-base font-medium leading-relaxed max-w-md" style={{ color: "rgba(240,234,208,0.7)" }}>
+                    {step.body}
+                  </p>
+                </div>
+
+                {/* Right: Floating Code Terminal */}
+                <div className="flex-1 w-full flex items-center justify-center relative z-10">
+                  <div className="w-full max-w-md bg-[#0F172A] rounded-2xl border border-white/20 shadow-2xl p-6 flex flex-col gap-4">
+
+                    {/* Mac window dots */}
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-[#FF5F56]/80" />
+                      <div className="w-3 h-3 rounded-full bg-[#FFBD2E]/80" />
+                      <div className="w-3 h-3 rounded-full bg-[#27C93F]/80" />
                     </div>
 
-                    <h3 className="text-3xl md:text-4xl font-black tracking-tight mb-4 text-[#FAFAFA]">
-                      {step.title}
-                    </h3>
-                    
-                    <p className="text-base font-medium leading-relaxed max-w-md" style={{ color: "rgba(240,234,208,0.7)" }}>
-                      {step.body}
-                    </p>
-                 </div>
-
-                 {/* Right: Floating Code Terminal */}
-                 <div className="flex-1 w-full flex items-center justify-center relative z-10">
-                    <div className="w-full max-w-md bg-[#0F172A] rounded-2xl border border-white/20 shadow-2xl p-6 flex flex-col gap-4">
-                       
-                       {/* Mac window dots */}
-                       <div className="flex gap-2">
-                         <div className="w-3 h-3 rounded-full bg-[#FF5F56]/80" />
-                         <div className="w-3 h-3 rounded-full bg-[#FFBD2E]/80" />
-                         <div className="w-3 h-3 rounded-full bg-[#27C93F]/80" />
-                       </div>
-                       
-                       {/* Terminal Output */}
-                       <div className="font-mono text-sm font-bold tracking-tight py-6 break-words" style={{ color: accent }}>
-                         <span className="opacity-50 mr-2">{'>'}</span> 
-                         {step.code}
-                       </div>
-                       
+                    {/* Terminal Output */}
+                    <div className="font-mono text-sm font-bold tracking-tight py-6 break-words" style={{ color: accent }}>
+                      <span className="opacity-50 mr-2">{'>'}</span>
+                      {step.code}
                     </div>
-                 </div>
 
-                 {/* Massive Ghost Icon inside widget */}
-                 <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03] transition-all duration-1000 scale-150 -translate-x-[20%]">
-                    <Icon className="w-96 h-96" style={{ color: accent }} />
-                 </div>
+                  </div>
+                </div>
 
-               </div>
-             );
-           })}
+                {/* Massive Ghost Icon inside widget */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none opacity-[0.03] transition-all duration-1000 scale-150 -translate-x-[20%]">
+                  <Icon className="w-96 h-96" style={{ color: accent }} />
+                </div>
+
+              </div>
+            );
+          })}
         </div>
       </div>
-      
+
     </section>
   );
 }

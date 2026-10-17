@@ -55,17 +55,17 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-24 px-6 md:px-12 lg:px-20 relative overflow-hidden" style={{ background: "#deecffff" }}>
-      
+
       {/* Decorative Grid Background */}
       <div className="absolute inset-0 opacity-10 pointer-events-none"
-        style={{ 
-          backgroundImage: `linear-gradient(rgba(37,99,235, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235, 0.2) 1px, transparent 1px)`, 
-          backgroundSize: '40px 40px' 
-        }} 
+        style={{
+          backgroundImage: `linear-gradient(rgba(37,99,235, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235, 0.2) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px'
+        }}
       />
 
       <div className="max-w-[1450px] mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-12 lg:gap-20">
-        
+
         {/* ── Left Column: Intro & Template ── */}
         <div className="flex flex-col gap-10">
           <div>
@@ -122,26 +122,26 @@ export default function Contact() {
         <div className="flex flex-col gap-4 h-full">
           {teamContacts.map((member) => {
             const isActive = activeMember.id === member.id;
-            
+
             return (
-              <div 
+              <div
                 key={member.id}
                 onClick={() => setActiveMember(member)}
                 className={`relative overflow-hidden rounded-3xl transition-all duration-500 cursor-pointer border flex flex-col`}
-                style={{ 
+                style={{
                   background: isActive ? "#FFFFFF" : "rgba(255,255,255,0.5)",
                   borderColor: isActive ? "rgba(37,99,235,0.15)" : "rgba(37,99,235,0.05)",
                   boxShadow: isActive ? "0 20px 50px -10px rgba(37,99,235,0.15)" : "none"
                 }}
               >
-                
+
                 {/* Header (Always Visible) */}
                 <div className={`flex items-center justify-between px-6 md:px-8 z-20 shrink-0 transition-all duration-500
                   ${isActive ? 'h-[100px]' : 'h-[100px] hover:h-[110px]'}
                 `}>
                   <div className="flex items-center gap-4 md:gap-6">
                     <div className="w-12 h-12 rounded-full flex items-center justify-center font-bold text-lg transition-colors duration-500 shrink-0"
-                      style={{ 
+                      style={{
                         background: isActive ? "rgba(37,99,235,0.08)" : "rgba(30,58,138,0.04)",
                         color: isActive ? "#2563EB" : "#3B82F6"
                       }}>
@@ -164,22 +164,22 @@ export default function Contact() {
                       style={{ color: "rgba(15,23,42,0.4)" }}>
                       {member.id}
                     </div>
-                    
+
                     {/* Socials - Visible on header */}
                     <div className="flex gap-2">
                       <a href={member.github} target="_blank" rel="noopener noreferrer"
                         className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                        style={{ 
+                        style={{
                           background: isActive ? "rgba(37,99,235,0.05)" : "rgba(30,58,138,0.03)",
-                          border: `1px solid ${isActive ? 'rgba(37,99,235,0.1)' : 'rgba(30,58,138,0.05)'}` 
+                          border: `1px solid ${isActive ? 'rgba(37,99,235,0.1)' : 'rgba(30,58,138,0.05)'}`
                         }}>
                         <Github className="w-3.5 h-3.5" style={{ color: isActive ? "#2563EB" : "#3B82F6" }} />
                       </a>
                       <a href={member.linkedin} target="_blank" rel="noopener noreferrer"
                         className="w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110"
-                        style={{ 
+                        style={{
                           background: isActive ? "rgba(37,99,235,0.05)" : "rgba(30,58,138,0.03)",
-                          border: `1px solid ${isActive ? 'rgba(37,99,235,0.1)' : 'rgba(30,58,138,0.05)'}` 
+                          border: `1px solid ${isActive ? 'rgba(37,99,235,0.1)' : 'rgba(30,58,138,0.05)'}`
                         }}>
                         <Linkedin className="w-3.5 h-3.5" style={{ color: isActive ? "#2563EB" : "#3B82F6" }} />
                       </a>
@@ -191,7 +191,7 @@ export default function Contact() {
                 <div className={`grid transition-all duration-500 ease-in-out ${isActive ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}>
                   <div className="overflow-hidden">
                     <div className="px-6 md:px-8 pb-8 flex flex-col justify-end">
-                      
+
                       {/* Focus Tags */}
                       <div className="flex flex-wrap gap-2 mb-6">
                         {member.focus.map((f) => (
@@ -204,7 +204,7 @@ export default function Contact() {
 
                       {/* Contact Buttons */}
                       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-                        
+
                         {/* Phone */}
                         <a href={`tel:${member.phone}`} className="group flex flex-col p-4 md:p-5 rounded-2xl transition-colors hover:bg-white"
                           style={{ background: "#F8FAFC", border: "1px solid rgba(37,99,235,0.1)" }}>

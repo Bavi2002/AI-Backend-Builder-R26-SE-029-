@@ -5,6 +5,7 @@ import Domain from "@/components/Domain";
 import HowItWorks from "@/components/HowItWorks";
 import Agents from "@/components/Agents";
 import TechStack from "@/components/TechStack";
+import ExtensionDownload from "@/components/ExtensionDownload";
 import Milestones from "@/components/Milestones";
 import Documents from "@/components/Documents";
 import Presentations from "@/components/Presentations";
@@ -24,6 +25,7 @@ export default function Home() {
       <Milestones />
       <Documents />
       <Presentations />
+      <ExtensionDownload />
       <Contact />
       <Footer />
     </main>

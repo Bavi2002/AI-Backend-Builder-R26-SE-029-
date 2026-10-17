@@ -1,50 +1,38 @@
 "use client";
 
 import { useState } from "react";
-import { FileText, Download, Lock, FileSpreadsheet, FileIcon, ArrowUpRight } from "lucide-react";
+import { FileText, Lock, FileSpreadsheet, FileIcon, ArrowUpRight } from "lucide-react";
 
 const documents = [
   {
     id: 0,
-    title: "Project Charter",
-    description: "High-level overview of the project scope, research objectives, and key participants involved.",
-    link: "#",
-    status: "pending",
-    size: "N/A",
+    title: "TAF Document",
+    description: "Topic Assessment Form(TAF) - Introduces the topic, the past research, research gaps, objectives, and the approach taken.",
+    link: "https://drive.google.com/file/d/1pVGIq9NlY_B5iNjEXrTOIJPOqjsuGN7J/view?usp=sharing",
+    status: "available",
     type: "PDF",
     icon: FileText,
-    color: "#FFFFFF",
-    author: "System Architect",
-    date: "Oct 12, 2026",
-    pages: "12 Pages"
+    color: "#9e9e9eff",
   },
   {
     id: 1,
     title: "Proposal Document",
     description: "Detailed comprehensive proposal encompassing all individual research contributions and methodology.",
-    link: "#",
+    link: "https://drive.google.com/drive/folders/1lplLVLNUGjibaRaXJvcjgGzanzg87-Nw?usp=sharing",
     status: "available",
-    size: "2.4 MB",
     type: "PDF",
     icon: FileText,
     color: "#60A5FA",
-    author: "Lead Researcher",
-    date: "Oct 15, 2026",
-    pages: "48 Pages"
   },
   {
     id: 2,
     title: "Check List Documents",
     description: "Evaluation criteria, progress tracking checklists, and internal milestone markers.",
-    link: "#",
-    status: "pending",
-    size: "N/A",
+    link: "https://drive.google.com/drive/folders/1sRhcwnWnd-euUW8quO-UnjRU4emnFYVf?usp=sharing",
+    status: "available",
     type: "XLSX",
     icon: FileSpreadsheet,
     color: "#93C5FD",
-    author: "QA Team",
-    date: "Pending",
-    pages: "Spreadsheet"
   },
   {
     id: 3,
@@ -52,13 +40,9 @@ const documents = [
     description: "The complete thesis encompassing all 4 individual reports alongside the main system documentation.",
     link: "#",
     status: "pending",
-    size: "N/A",
     type: "PDF",
     icon: FileIcon,
     color: "#3B82F6",
-    author: "Research Team",
-    date: "Pending",
-    pages: "120+ Pages"
   },
 ];
 
@@ -103,10 +87,7 @@ export default function Documents() {
         <div className={`absolute top-6 right-6 md:top-10 md:right-10 pointer-events-none transition-all duration-700
           ${isHovered ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0 delay-[300ms]'}
         `}>
-          <span className="text-[9px] font-mono font-bold uppercase tracking-widest px-3 py-1.5 rounded-full backdrop-blur-md border"
-            style={{ color: accent, borderColor: `${accent}4D`, backgroundColor: `${accent}26` }}>
-            {doc.size}
-          </span>
+
         </div>
 
         {/* 2. Hovered State Abstract Lines (Only visible on desktop) */}
@@ -171,24 +152,6 @@ export default function Documents() {
           `}>
             {doc.description}
           </p>
-
-          {/* Meta Specs Grid */}
-          <div className={`grid grid-cols-3 gap-4 transition-all duration-500 overflow-hidden
-            ${isHovered ? 'max-h-20 opacity-100 mt-6 pt-6 border-t border-[rgba(255,255,255,0.05)]' : 'max-h-0 opacity-0 mt-0 pt-0 border-transparent'}
-          `}>
-            <div className="flex flex-col gap-1.5">
-              <span className="text-[9px] font-mono uppercase tracking-widest text-[rgba(255,255,255,0.4)]">Author</span>
-              <span className="text-xs font-bold text-[#FAFAFA] truncate">{doc.author}</span>
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <span className="text-[9px] font-mono uppercase tracking-widest text-[rgba(255,255,255,0.4)]">Updated</span>
-              <span className="text-xs font-bold text-[#FAFAFA] truncate">{doc.date}</span>
-            </div>
-            <div className="flex flex-col gap-1.5">
-              <span className="text-[9px] font-mono uppercase tracking-widest text-[rgba(255,255,255,0.4)]">Length</span>
-              <span className="text-xs font-bold text-[#FAFAFA] truncate">{doc.pages}</span>
-            </div>
-          </div>
         </div>
       </a>
     );

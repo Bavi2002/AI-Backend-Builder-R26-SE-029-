@@ -4,28 +4,28 @@ import { useEffect, useState } from "react";
 import { Github, ArrowUpRight, CheckCircle2, Loader2, Circle, Bot, Files, Zap } from "lucide-react";
 
 const LINES = [
-  { delay: 0,    prefix: "$ ",    pColor: "#1E3A8A", text: "Build Backend with AI",             tColor: "#0F172A" },
-  { delay: 900,  prefix: "  ",    pColor: "#64748B", text: "› Planner → analyzing reqs…",       tColor: "#64748B" },
-  { delay: 1700, prefix: "  ✓ ",  pColor: "#1E3A8A", text: "entities: User, Post, Comment",     tColor: "#334155" },
-  { delay: 2400, prefix: "  ✓ ",  pColor: "#1E3A8A", text: "12 files planned",                  tColor: "#334155" },
-  { delay: 3100, prefix: "  ",    pColor: "#64748B", text: "› CodeGen → writing source…",       tColor: "#64748B" },
-  { delay: 3800, prefix: "  ✓ ",  pColor: "#1E3A8A", text: "models/User.js",                    tColor: "#334155" },
-  { delay: 4400, prefix: "  ✓ ",  pColor: "#1E3A8A", text: "controllers/authController.js",    tColor: "#334155" },
-  { delay: 5000, prefix: "  ✓ ",  pColor: "#1E3A8A", text: "routes/api.js",                     tColor: "#334155" },
-  { delay: 5600, prefix: "  ✓ ",  pColor: "#1E3A8A", text: "middleware/auth.js",                tColor: "#334155" },
-  { delay: 6200, prefix: "  ",    pColor: "#64748B", text: "› Validator → type checking…",      tColor: "#64748B" },
-  { delay: 6900, prefix: "  ✓ ",  pColor: "#1E3A8A", text: "No lint errors found",              tColor: "#334155" },
-  { delay: 7500, prefix: "  ",    pColor: "#64748B", text: "› Debug → running test suite…",     tColor: "#64748B" },
-  { delay: 8400, prefix: "  ✓ ",  pColor: "#1E3A8A", text: "All 42 tests passed ✨",            tColor: "#1E3A8A" },
-  { delay: 9200, prefix: "  ",    pColor: "#64748B", text: "› Deploy → scaffolding docker…",    tColor: "#64748B" },
-  { delay: 9900, prefix: "  ✓ ",  pColor: "#1E3A8A", text: "Build done! Server at :5000",       tColor: "#1E3A8A" },
+  { delay: 0, prefix: "$ ", pColor: "#1E3A8A", text: "Build Backend with AI", tColor: "#0F172A" },
+  { delay: 900, prefix: "  ", pColor: "#64748B", text: "› Planner → analyzing reqs…", tColor: "#64748B" },
+  { delay: 1700, prefix: "  ✓ ", pColor: "#1E3A8A", text: "entities: User, Post, Comment", tColor: "#334155" },
+  { delay: 2400, prefix: "  ✓ ", pColor: "#1E3A8A", text: "12 files planned", tColor: "#334155" },
+  { delay: 3100, prefix: "  ", pColor: "#64748B", text: "› CodeGen → writing source…", tColor: "#64748B" },
+  { delay: 3800, prefix: "  ✓ ", pColor: "#1E3A8A", text: "models/User.js", tColor: "#334155" },
+  { delay: 4400, prefix: "  ✓ ", pColor: "#1E3A8A", text: "controllers/authController.js", tColor: "#334155" },
+  { delay: 5000, prefix: "  ✓ ", pColor: "#1E3A8A", text: "routes/api.js", tColor: "#334155" },
+  { delay: 5600, prefix: "  ✓ ", pColor: "#1E3A8A", text: "middleware/auth.js", tColor: "#334155" },
+  { delay: 6200, prefix: "  ", pColor: "#64748B", text: "› Validator → type checking…", tColor: "#64748B" },
+  { delay: 6900, prefix: "  ✓ ", pColor: "#1E3A8A", text: "No lint errors found", tColor: "#334155" },
+  { delay: 7500, prefix: "  ", pColor: "#64748B", text: "› Debug → running test suite…", tColor: "#64748B" },
+  { delay: 8400, prefix: "  ✓ ", pColor: "#1E3A8A", text: "All 42 tests passed ✨", tColor: "#1E3A8A" },
+  { delay: 9200, prefix: "  ", pColor: "#64748B", text: "› Deploy → scaffolding docker…", tColor: "#64748B" },
+  { delay: 9900, prefix: "  ✓ ", pColor: "#1E3A8A", text: "Build done! Server at :5000", tColor: "#1E3A8A" },
 ];
 
 const AGENTS = [
-  { name: "Planner",   desc: "Architecture & file tree",  status: "done"    },
-  { name: "CodeGen",   desc: "MVC source generation",     status: "done"    },
-  { name: "Debug",     desc: "Tests & error fixing",      status: "idle"    },
-  { name: "Critic",    desc: "Root cause analysis",       status: "idle"    },
+  { name: "Planner", desc: "Architecture & file tree", status: "done" },
+  { name: "CodeGen", desc: "MVC source generation", status: "done" },
+  { name: "Debug", desc: "Tests & error fixing", status: "idle" },
+  { name: "Critic", desc: "Root cause analysis", status: "idle" },
 ];
 
 export default function Hero() {
@@ -37,7 +37,7 @@ export default function Hero() {
   }, []);
 
   const doneCount = AGENTS.filter(a => a.status === "done").length;
-  const pct       = Math.round((doneCount / AGENTS.length) * 100);
+  const pct = Math.round((doneCount / AGENTS.length) * 100);
 
   return (
     <section
@@ -66,10 +66,16 @@ export default function Hero() {
                 <div className="w-1.5 h-1.5 rounded-full bg-forest animate-pulse" />
                 <span className="text-[10px] font-bold text-ink uppercase tracking-widest">Research R26-SE-029</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border shadow-[0_2px_10px_rgba(0,0,0,0.03)]" style={{ background: "#FFFFFF", borderColor: "#334155" }}>
+              <a
+                href="https://marketplace.visualstudio.com/items?itemName=R26-SE-029.ai-backend-builder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:border-blue-500 hover:text-blue-600 transition-all duration-200"
+                style={{ background: "#FFFFFF", borderColor: "#334155" }}
+              >
                 <Bot className="w-3.5 h-3.5 text-forest" />
-                <span className="text-[10px] font-bold text-ink uppercase tracking-widest">VS Code</span>
-              </div>
+                <span className="text-[10px] font-bold text-ink uppercase tracking-widest">VS Code Marketplace</span>
+              </a>
               <div className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border shadow-[0_2px_10px_rgba(0,0,0,0.03)]" style={{ background: "#FFFFFF", borderColor: "#334155" }}>
                 <Github className="w-3.5 h-3.5 text-forest" />
                 <span className="text-[10px] font-bold text-ink uppercase tracking-widest">Open Source</span>
@@ -128,16 +134,27 @@ export default function Hero() {
             </p>
 
             {/* CTA buttons */}
-            <div className="flex gap-3 flex-wrap">
-              <a href="#how-it-works" className="btn-forest py-3 px-7 text-sm">
+            <div className="flex gap-3 flex-wrap items-center">
+              <a
+                href="https://marketplace.visualstudio.com/items?itemName=R26-SE-029.ai-backend-builder"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-forest py-3 px-6 text-sm inline-flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
+              >
+                <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+                  <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .32 8.7l3.23 2.946-3.23 2.946a1 1 0 0 0 .007 1.439l1.322 1.202a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.94-2.377A1.5 1.5 0 0 0 24 19.346V4.254a1.5 1.5 0 0 0-.85-1.347zM18 17.5l-8-6 8-6v12z" />
+                </svg>
+                Install Extension
+                <ArrowUpRight className="w-3.5 h-3.5 opacity-80" />
+              </a>
+              <a href="#how-it-works" className="btn-outline py-3 px-6 text-sm">
                 How it works
-                <ArrowUpRight className="w-4 h-4" />
               </a>
               <a
                 href="https://github.com/Koshigawarman/R26-SE-029"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-outline py-3 px-7 text-sm"
+                className="btn-outline py-3 px-5 text-sm"
               >
                 <Github className="w-4 h-4" />
                 GitHub
@@ -220,18 +237,18 @@ export default function Hero() {
                 ))}
                 <div className="flex items-center gap-1 mt-1 animate-in fade-in fill-mode-both" style={{ animationDelay: `${LINES[LINES.length - 1].delay + 500}ms` }}>
                   <span style={{ color: "rgba(15,23,42,0.35)" }}>$</span>
-                    <span
-                      style={{
-                        display: "inline-block",
-                        width: 7, height: 14,
-                        borderRadius: 2,
-                        marginLeft: 4,
-                        background: blink ? "#1E3A8A" : "transparent",
-                        transition: "background 0.08s",
-                      }}
-                    />
-                  </div>
+                  <span
+                    style={{
+                      display: "inline-block",
+                      width: 7, height: 14,
+                      borderRadius: 2,
+                      marginLeft: 4,
+                      background: blink ? "#1E3A8A" : "transparent",
+                      transition: "background 0.08s",
+                    }}
+                  />
                 </div>
+              </div>
 
               {/* ── Divider ── */}
               <div style={{ height: 1, background: "rgba(30,58,138,0.10)" }} />
@@ -246,24 +263,22 @@ export default function Hero() {
                     <div key={a.name} className="flex flex-col items-center flex-1 relative z-10 group">
                       {/* Step Circle */}
                       <div
-                        className={`w-7 h-7 rounded-full flex items-center justify-center border transition-all duration-300 relative z-10 ${
-                          a.status === "done" ? "bg-[#1E3A8A] border-[#1E3A8A] shadow-sm" :
-                          a.status === "running" ? "bg-white border-[#1E3A8A] shadow-[0_0_12px_rgba(30,58,138,0.2)]" :
-                          "bg-slate-100 border-slate-200"
-                        }`}
+                        className={`w-7 h-7 rounded-full flex items-center justify-center border transition-all duration-300 relative z-10 ${a.status === "done" ? "bg-[#1E3A8A] border-[#1E3A8A] shadow-sm" :
+                            a.status === "running" ? "bg-white border-[#1E3A8A] shadow-[0_0_12px_rgba(30,58,138,0.2)]" :
+                              "bg-slate-100 border-slate-200"
+                          }`}
                       >
                         {a.status === "done" && <CheckCircle2 className="w-3.5 h-3.5 text-white" />}
                         {a.status === "running" && <Loader2 className="w-3.5 h-3.5 animate-spin text-[#1E3A8A]" />}
                         {a.status === "idle" && <Circle className="w-2.5 h-2.5 text-slate-400" />}
                       </div>
-                      
+
                       {/* Label */}
                       <span
-                        className={`mt-2 text-[9px] font-bold tracking-wider uppercase transition-colors text-center ${
-                          a.status === "done" ? "text-[#1E3A8A]" :
-                          a.status === "running" ? "text-[#0F172A]" :
-                          "text-slate-400"
-                        }`}
+                        className={`mt-2 text-[9px] font-bold tracking-wider uppercase transition-colors text-center ${a.status === "done" ? "text-[#1E3A8A]" :
+                            a.status === "running" ? "text-[#0F172A]" :
+                              "text-slate-400"
+                          }`}
                       >
                         {a.name}
                       </span>
@@ -300,9 +315,9 @@ export default function Hero() {
               </div>
             </div>
 
-        
 
-         
+
+
           </div>
         </div>
       </div>

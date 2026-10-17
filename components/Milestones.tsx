@@ -27,7 +27,7 @@ const milestones = [
   {
     id: "final",
     title: "Final Presentation",
-    date: "TBD",
+    date: "21.10.2026",
     details: "Comprehensive evaluation of the fully implemented autonomous multi-agent system.",
     status: "upcoming",
   },
@@ -37,10 +37,7 @@ export default function Milestones() {
   return (
     <section id="milestones" className="py-24 px-6 md:px-12 lg:px-20 relative overflow-hidden" style={{ background: "#FFFFFF" }}>
       
-      {/* Background Gradients */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[1000px] h-[400px] pointer-events-none opacity-20 blur-[120px]"
-        style={{ background: "radial-gradient(ellipse at top, #2563EB 0%, transparent 70%)" }} />
-
+      
       <div className="max-w-[1600px] mx-auto relative z-10">
         
         {/* ── Header ── */}

@@ -43,7 +43,7 @@ const presentations = [
   {
     id: "final",
     title: "Final Presentation",
-    date: "TBD",
+    date: "21.10.2026",
     description: "Comprehensive final defense of the autonomous multi-agent software generation pipeline.",
     link: "#",
     color: "#2563EB",

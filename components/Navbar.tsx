@@ -4,15 +4,15 @@ import { useState, useEffect } from "react";
 import { Menu, X, Github } from "lucide-react";
 
 const links = [
-  { label: "Domain",        href: "#domain" },
-  { label: "Milestones",    href: "#milestones" },
-  { label: "Documents",     href: "#documents" },
   { label: "Features",      href: "#features" },
-  { label: "Pipeline",      href: "#how-it-works" },
+  { label: "Domain",        href: "#domain" },
+  { label: "Pipeline",      href: "#pipeline" },
   { label: "Agents",        href: "#agents" },
   { label: "Stack",         href: "#tech-stack" },
+  { label: "Milestones",    href: "#milestones" },
+  { label: "Documents",     href: "#documents" },
   { label: "Slides",        href: "#presentations" },
-  { label: "Team",          href: "#team" },
+  { label: "Extension",     href: "#extension" },
   { label: "Contact",       href: "#contact" },
 ];
 
@@ -94,19 +94,19 @@ export default function Navbar() {
             <Github className="w-4 h-4" />
           </a>
           <a
-            href="#how-it-works"
-            className="rounded-full text-[13px] font-bold py-2 px-5 transition-all duration-300"
+            href="#extension"
+            className="rounded-full text-[13px] font-bold py-2 px-5 transition-all duration-300 shadow-sm"
             style={{ background: "#0F172A", color: "#FFFFFF" }}
             onMouseEnter={(e) => {
               e.currentTarget.style.transform = "scale(1.02)";
-              e.currentTarget.style.background = "#1E293B";
+              e.currentTarget.style.background = "#007ACC";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.transform = "scale(1)";
-              e.currentTarget.style.background = "#1E293B";
+              e.currentTarget.style.background = "#0F172A";
             }}
           >
-            Get Started
+            Get Extension
           </a>
         </div>
       </nav>
@@ -157,7 +157,16 @@ export default function Navbar() {
                 {l.label}
               </a>
             ))}
-            <div className="pt-4 mt-2 border-t border-[rgba(15,23,42,0.1)]">
+            <div className="flex flex-col gap-2 pt-4 mt-2 border-t border-[rgba(15,23,42,0.1)]">
+              <a
+                href="https://marketplace.visualstudio.com/items?itemName=R26-SE-029.ai-backend-builder"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setOpen(false)}
+                className="flex items-center justify-center gap-2 w-full text-sm font-bold rounded-xl py-3.5 transition-all text-white bg-blue-600 hover:bg-blue-700 shadow-md"
+              >
+                Install VS Code Extension
+              </a>
               <a
                 href="https://github.com/Koshigawarman/R26-SE-029"
                 target="_blank"
