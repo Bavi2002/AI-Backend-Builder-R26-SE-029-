@@ -36,10 +36,20 @@ const documents = [
   },
   {
     id: 3,
+    title: "Draft Individual Thesis",
+    description: "Individual research thesis drafts covering distinct subsystem architectures and research contributions.",
+    link: "https://drive.google.com/drive/folders/1nUwwnXIbz25p7n174_Mzg6e5VEQF8XRx?usp=sharing",
+    status: "available",
+    type: "PDF",
+    icon: FileText,
+    color: "#818CF8",
+  },
+  {
+    id: 4,
     title: "Final Document",
-    description: "The complete thesis encompassing all 4 individual reports alongside the main system documentation.",
-    link: "#",
-    status: "pending",
+    description: "The complete thesis encompassing all individual reports alongside the main system documentation.",
+    link: "https://drive.google.com/file/d/1_lCmp0sU41cuvHB-Xftq5WwTSh6BDjKP/view?usp=drive_link",
+    status: "available",
     type: "PDF",
     icon: FileIcon,
     color: "#3B82F6",
@@ -211,11 +221,11 @@ export default function Documents() {
         </div>
 
         {/* ── Desktop: Elastic Bento Grid (Interactive Physics) ── */}
-        <div className="hidden lg:flex flex-col gap-6 h-[750px] w-full">
+        <div className="hidden lg:flex flex-col gap-6 h-[780px] w-full">
 
-          {/* Row 1 */}
+          {/* Row 1: 2 Cards */}
           <div className={`flex gap-6 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${hoveredIndex === 0 || hoveredIndex === 1 ? 'flex-[1.5]' : hoveredIndex === 2 || hoveredIndex === 3 ? 'flex-[0.5]' : 'flex-1'}
+            ${hoveredIndex === 0 || hoveredIndex === 1 ? 'flex-[1.4]' : 'flex-1'}
           `}>
             {/* Card 0 */}
             <div
@@ -244,15 +254,15 @@ export default function Documents() {
             </div>
           </div>
 
-          {/* Row 2 */}
+          {/* Row 2: 3 Cards */}
           <div className={`flex gap-6 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${hoveredIndex === 2 || hoveredIndex === 3 ? 'flex-[1.5]' : hoveredIndex === 0 || hoveredIndex === 1 ? 'flex-[0.5]' : 'flex-1'}
+            ${hoveredIndex >= 2 ? 'flex-[1.4]' : 'flex-1'}
           `}>
             {/* Card 2 */}
             <div
               onMouseEnter={() => setHoveredIndex(2)}
               className={`relative overflow-hidden rounded-[3rem] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-                ${hoveredIndex === 2 ? 'flex-[1.8]' : hoveredIndex === 3 ? 'flex-[0.6]' : 'flex-1'}
+                ${hoveredIndex === 2 ? 'flex-[1.8]' : hoveredIndex >= 2 ? 'flex-[0.7]' : 'flex-1'}
               `}
               style={getCardStyle(2, hoveredIndex === 2)}
             >
@@ -265,13 +275,26 @@ export default function Documents() {
             <div
               onMouseEnter={() => setHoveredIndex(3)}
               className={`relative overflow-hidden rounded-[3rem] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-                ${hoveredIndex === 3 ? 'flex-[1.8]' : hoveredIndex === 2 ? 'flex-[0.6]' : 'flex-1'}
+                ${hoveredIndex === 3 ? 'flex-[1.8]' : hoveredIndex >= 2 ? 'flex-[0.7]' : 'flex-1'}
               `}
               style={getCardStyle(3, hoveredIndex === 3)}
             >
               {getBackgroundGlow(3, hoveredIndex === 3)}
               {getMassiveIcon(3, hoveredIndex === 3)}
               {renderCardContent(documents[3], hoveredIndex === 3)}
+            </div>
+
+            {/* Card 4 */}
+            <div
+              onMouseEnter={() => setHoveredIndex(4)}
+              className={`relative overflow-hidden rounded-[3rem] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
+                ${hoveredIndex === 4 ? 'flex-[1.8]' : hoveredIndex >= 2 ? 'flex-[0.7]' : 'flex-1'}
+              `}
+              style={getCardStyle(4, hoveredIndex === 4)}
+            >
+              {getBackgroundGlow(4, hoveredIndex === 4)}
+              {getMassiveIcon(4, hoveredIndex === 4)}
+              {renderCardContent(documents[4], hoveredIndex === 4)}
             </div>
           </div>
 

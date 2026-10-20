@@ -45,7 +45,7 @@ const presentations = [
     title: "Final Presentation",
     date: "21.10.2026",
     description: "Comprehensive final defense of the autonomous multi-agent software generation pipeline.",
-    link: "#",
+    link: "https://canva.link/jlsptosai5whwii",
     color: "#2563EB",
     textColor: "#FAFAFA",
     activeBg: "linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%)",
