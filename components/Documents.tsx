@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FileText, Lock, FileSpreadsheet, FileIcon, ArrowUpRight } from "lucide-react";
+import { FileText, Lock, FileSpreadsheet, FileIcon, ArrowUpRight, BookOpen } from "lucide-react";
 
 const documents = [
   {
@@ -46,6 +46,16 @@ const documents = [
   },
   {
     id: 4,
+    title: "Research Paper",
+    description: "Official research publication detailing the multi-agent backend generation framework, evaluation, and empirical results.",
+    link: "https://drive.google.com/file/d/1I6VwvJQXJZ3GtcwYI296eOSbJCqU9ejl/view?usp=sharing",
+    status: "available",
+    type: "PDF",
+    icon: BookOpen,
+    color: "#38BDF8",
+  },
+  {
+    id: 5,
     title: "Final Document",
     description: "The complete thesis encompassing all individual reports alongside the main system documentation.",
     link: "https://drive.google.com/file/d/1_lCmp0sU41cuvHB-Xftq5WwTSh6BDjKP/view?usp=drive_link",
@@ -223,15 +233,15 @@ export default function Documents() {
         {/* ── Desktop: Elastic Bento Grid (Interactive Physics) ── */}
         <div className="hidden lg:flex flex-col gap-6 h-[780px] w-full">
 
-          {/* Row 1: 2 Cards */}
+          {/* Row 1: 3 Cards */}
           <div className={`flex gap-6 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${hoveredIndex === 0 || hoveredIndex === 1 ? 'flex-[1.4]' : 'flex-1'}
+            ${hoveredIndex <= 2 ? 'flex-[1.4]' : 'flex-1'}
           `}>
             {/* Card 0 */}
             <div
               onMouseEnter={() => setHoveredIndex(0)}
               className={`relative overflow-hidden rounded-[3rem] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-                ${hoveredIndex === 0 ? 'flex-[1.8]' : hoveredIndex === 1 ? 'flex-[0.6]' : 'flex-1'}
+                ${hoveredIndex === 0 ? 'flex-[1.8]' : hoveredIndex <= 2 ? 'flex-[0.7]' : 'flex-1'}
               `}
               style={getCardStyle(0, hoveredIndex === 0)}
             >
@@ -244,7 +254,7 @@ export default function Documents() {
             <div
               onMouseEnter={() => setHoveredIndex(1)}
               className={`relative overflow-hidden rounded-[3rem] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-                ${hoveredIndex === 1 ? 'flex-[1.8]' : hoveredIndex === 0 ? 'flex-[0.6]' : 'flex-1'}
+                ${hoveredIndex === 1 ? 'flex-[1.8]' : hoveredIndex <= 2 ? 'flex-[0.7]' : 'flex-1'}
               `}
               style={getCardStyle(1, hoveredIndex === 1)}
             >
@@ -252,17 +262,12 @@ export default function Documents() {
               {getMassiveIcon(1, hoveredIndex === 1)}
               {renderCardContent(documents[1], hoveredIndex === 1)}
             </div>
-          </div>
 
-          {/* Row 2: 3 Cards */}
-          <div className={`flex gap-6 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-            ${hoveredIndex >= 2 ? 'flex-[1.4]' : 'flex-1'}
-          `}>
             {/* Card 2 */}
             <div
               onMouseEnter={() => setHoveredIndex(2)}
               className={`relative overflow-hidden rounded-[3rem] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-                ${hoveredIndex === 2 ? 'flex-[1.8]' : hoveredIndex >= 2 ? 'flex-[0.7]' : 'flex-1'}
+                ${hoveredIndex === 2 ? 'flex-[1.8]' : hoveredIndex <= 2 ? 'flex-[0.7]' : 'flex-1'}
               `}
               style={getCardStyle(2, hoveredIndex === 2)}
             >
@@ -270,12 +275,17 @@ export default function Documents() {
               {getMassiveIcon(2, hoveredIndex === 2)}
               {renderCardContent(documents[2], hoveredIndex === 2)}
             </div>
+          </div>
 
+          {/* Row 2: 3 Cards */}
+          <div className={`flex gap-6 transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
+            ${hoveredIndex >= 3 ? 'flex-[1.4]' : 'flex-1'}
+          `}>
             {/* Card 3 */}
             <div
               onMouseEnter={() => setHoveredIndex(3)}
               className={`relative overflow-hidden rounded-[3rem] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-                ${hoveredIndex === 3 ? 'flex-[1.8]' : hoveredIndex >= 2 ? 'flex-[0.7]' : 'flex-1'}
+                ${hoveredIndex === 3 ? 'flex-[1.8]' : hoveredIndex >= 3 ? 'flex-[0.7]' : 'flex-1'}
               `}
               style={getCardStyle(3, hoveredIndex === 3)}
             >
@@ -288,13 +298,26 @@ export default function Documents() {
             <div
               onMouseEnter={() => setHoveredIndex(4)}
               className={`relative overflow-hidden rounded-[3rem] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
-                ${hoveredIndex === 4 ? 'flex-[1.8]' : hoveredIndex >= 2 ? 'flex-[0.7]' : 'flex-1'}
+                ${hoveredIndex === 4 ? 'flex-[1.8]' : hoveredIndex >= 3 ? 'flex-[0.7]' : 'flex-1'}
               `}
               style={getCardStyle(4, hoveredIndex === 4)}
             >
               {getBackgroundGlow(4, hoveredIndex === 4)}
               {getMassiveIcon(4, hoveredIndex === 4)}
               {renderCardContent(documents[4], hoveredIndex === 4)}
+            </div>
+
+            {/* Card 5 */}
+            <div
+              onMouseEnter={() => setHoveredIndex(5)}
+              className={`relative overflow-hidden rounded-[3rem] transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]
+                ${hoveredIndex === 5 ? 'flex-[1.8]' : hoveredIndex >= 3 ? 'flex-[0.7]' : 'flex-1'}
+              `}
+              style={getCardStyle(5, hoveredIndex === 5)}
+            >
+              {getBackgroundGlow(5, hoveredIndex === 5)}
+              {getMassiveIcon(5, hoveredIndex === 5)}
+              {renderCardContent(documents[5], hoveredIndex === 5)}
             </div>
           </div>
 
